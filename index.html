@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fizika</title>
+    <style>
+        .gallery-container {
+            text-align: center;
+        }
+        .gallery-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .navigation-buttons {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>OCPS replacement</h1></center>
+    <div class="gallery-container">
+        <img id="galleryImage" src="page1.png" alt="Image 1">
+        <div class="navigation-buttons">
+            <button onclick="previousImage()">Previous</button>
+            <button onclick="nextImage()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            "page1.png",
+            "page2.png",
+            "page3.png",
+            "page4.png"
+        ];
+        let currentIndex = 0;
+
+        function previousImage() {
+            if (currentIndex > 0){
+                currentIndex -= 1;
+            }
+            else{
+                currentIndex = images.length - 1;
+            }
+            document.getElementById('galleryImage').src = images[currentIndex];
+        }
+
+        // Function to show the next image
+        function nextImage() {
+            if(currentIndex < images.length - 1){
+                currentIndex += 1;
+            }
+            else{
+                currentIndex = 0;
+            }
+            document.getElementById('galleryImage').src = images[currentIndex];
+        }
+    </script>
+</body>
+</html>
